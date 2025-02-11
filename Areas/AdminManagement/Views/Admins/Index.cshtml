@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FacilityManagement.Models.Admin>
+
+@{
+    ViewData["Title"] = "Trang Chủ";
+    Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
+}
+
+<!-- Add custom CSS for primary color -->
+<style>
+    body {
+        background-color: white;
+    }
+
+    .btn-primary, .table th {
+        background-color: #052c93;
+        color: white;
+    }
+
+    .table th, .table td {
+        text-align: center;
+    }
+
+    .table thead th {
+        background-color: #052c93;
+        color: white;
+    }
+
+    .btn-primary {
+        color: white;
+        background-color: #052c93;
+        border-color: #052c93;
+    }
+</style>
+
+<h1>Trang Chủ</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminName) - Tên Quản Trị
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username) - Tên Đăng Nhập
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password) - Mật Khẩu
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email) - Email
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone) - Số Điện Thoại
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt) - Ngày Tạo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AdminId" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Details" asp-route-id="@item.AdminId" class="btn btn-info">Chi Tiết</a>
+                    <a asp-action="Delete" asp-route-id="@item.AdminId" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
