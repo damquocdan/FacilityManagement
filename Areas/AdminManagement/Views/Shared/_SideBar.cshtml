@@ -24,7 +24,7 @@
                     }
                     else
                     {
-                        <a href="#" class="d-block" style="color: white;">DamQuocDan</a>
+                        <a href="#" class="d-block" style="color: white;">Nguyen Viet Chien</a>
                     }
                 }
             </div>
@@ -38,7 +38,7 @@
                     <a href="#" class="nav-link" style="color: white;">
                         <div class="d-flex align-items-center">
                             <div class="icon-container">
-                                <i class="fa-solid fa-user-tie fa-xl"></i>
+                                <i class="fas fa-user-cog fa-xl"></i>
                             </div>
                             <p class="ms-3">Tài khoản Admin<i class="right fas fa-angle-down"></i></p>
                         </div>
@@ -46,7 +46,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Admins" asp-action="Index" class="nav-link" style="color: white;">
-                                <i class="fas fa-edit nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
@@ -59,12 +59,11 @@
                     </ul>
                 </li>
 
-                <!-- Repeat for other menu items -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" style="color: white;">
                         <div class="d-flex align-items-center">
                             <div class="icon-container">
-                                <i class="fa-solid fa-house-user fa-xl"></i>
+                                <i class="fas fa-building fa-xl"></i>
                             </div>
                             <p class="ms-3">Quản lý Toà<i class="right fas fa-angle-down"></i></p>
                         </div>
@@ -72,7 +71,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Buildings" asp-action="Index" class="nav-link" style="color: white;">
-                                <i class="fas fa-edit nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
@@ -84,12 +83,36 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" style="color: white;">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-container">
+                                <i class="fas fa-building fa-xl"></i>
+                            </div>
+                            <p class="ms-3">Quản lý Phòng<i class="right fas fa-angle-down"></i></p>
+                        </div>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-area="AdminManagement" asp-controller="Rooms" asp-action="Index" class="nav-link" style="color: white;">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="AdminManagement" asp-controller="Rooms" asp-action="Create" class="nav-link" style="color: white;">
+                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-house-user fa-xl"></i>
+                                <i class="fas fa-users fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Quản lý nhân viên
@@ -100,7 +123,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Staffs" asp-action="Index" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
@@ -118,7 +141,7 @@
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-list fa-xl"></i>
+                                <i class="fas fa-tools fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Quản lý Vật tư
@@ -129,13 +152,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Equipments" asp-action="Index" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-area="AdminManagement" asp-controller="Staffs" asp-action="Create" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                            <a asp-area="AdminManagement" asp-controller="Equipments" asp-action="Create" class="nav-link">
+                                <i class="fas fa-plus-circle nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
@@ -145,7 +168,7 @@
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-list fa-xl"></i>
+                                <i class="fas fa-wrench fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Quản lý Bảo Trì
@@ -156,13 +179,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Maintenances" asp-action="Index" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Maintenances" asp-action="Create" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                                <i class="fas fa-plus-circle nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
@@ -172,7 +195,7 @@
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-list fa-xl"></i>
+                                <i class="fas fa-building fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Quản lý Cơ sở
@@ -183,13 +206,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Campus" asp-action="Index" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Campus" asp-action="Create" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                                <i class="fas fa-plus-circle nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
@@ -199,7 +222,7 @@
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-list fa-xl"></i>
+                                <i class="fas fa-calendar-alt fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Lịch sử dụng phòng
@@ -210,7 +233,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a asp-area="AdminManagement" asp-controller="Usages" asp-action="Index" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>

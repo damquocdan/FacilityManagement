@@ -48,7 +48,7 @@ namespace FacilityManagement.Areas.AdminManagement.Controllers
         // GET: AdminManagement/Buildings/Create
         public IActionResult Create()
         {
-            ViewData["CampusId"] = new SelectList(_context.Campuses, "CampusId", "CampusId");
+            ViewData["CampusId"] = new SelectList(_context.Campuses, "CampusId", "CampusName");
             return View();
         }
 

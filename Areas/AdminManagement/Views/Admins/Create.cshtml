@@ -1,54 +1,81 @@
 ﻿@model FacilityManagement.Models.Admin
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm Quản Trị Viên";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Create</h1>
+<!-- Custom CSS -->
+<style>
+    body {
+        background-color: white;
+    }
 
-<h4>Admin</h4>
+    .btn-primary {
+        background-color: #052c93;
+        border-color: #052c93;
+    }
+
+        .btn-primary:hover {
+            background-color: #041f6a;
+            border-color: #041f6a;
+        }
+
+    .form-group label {
+        font-weight: bold;
+        color: #052c93;
+    }
+</style>
+
+<h1 class="text-primary">Thêm Quản Trị Viên</h1>
+
+<h4>Thông Tin Quản Trị</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="AdminName" class="control-label"></label>
-                <input asp-for="AdminName" class="form-control" />
+                <label asp-for="AdminName" class="control-label">Họ và Tên</label>
+                <input asp-for="AdminName" class="form-control" placeholder="Nhập họ và tên" />
                 <span asp-validation-for="AdminName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
+                <label asp-for="Username" class="control-label">Tên Đăng Nhập</label>
+                <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <label asp-for="Password" class="control-label">Mật Khẩu</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
+                <label asp-for="Phone" class="control-label">Số Điện Thoại</label>
+                <input asp-for="Phone" type="tel" class="form-control" placeholder="Nhập số điện thoại" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Thêm Mới" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -1,53 +1,59 @@
 ﻿@model FacilityManagement.Models.Room
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm Phòng";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Create</h1>
+<h1 class="text-primary">Thêm Phòng</h1>
 
-<h4>Room</h4>
+<h4 class="text-dark">Nhập Thông Tin Phòng</h4>
 <hr />
+
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-6">
+        <form asp-action="Create" class="p-3 shadow-sm rounded bg-white">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="RoomName" class="control-label"></label>
-                <input asp-for="RoomName" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="RoomName" class="form-label fw-bold text-primary">Tên Phòng</label>
+                <input asp-for="RoomName" class="form-control border-primary" />
                 <span asp-validation-for="RoomName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="BuildingId" class="control-label"></label>
-                <select asp-for="BuildingId" class ="form-control" asp-items="ViewBag.BuildingId"></select>
+
+            <div class="mb-3">
+                <label asp-for="BuildingId" class="form-label fw-bold text-primary">Toà Nhà</label>
+                <select asp-for="BuildingId" class="form-control border-primary" asp-items="ViewBag.BuildingId"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="RoomType" class="control-label"></label>
-                <input asp-for="RoomType" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="RoomType" class="form-label fw-bold text-primary">Loại Phòng</label>
+                <input asp-for="RoomType" class="form-control border-primary" />
                 <span asp-validation-for="RoomType" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Capacity" class="control-label"></label>
-                <input asp-for="Capacity" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="Capacity" class="form-label fw-bold text-primary">Sức Chứa</label>
+                <input asp-for="Capacity" class="form-control border-primary" />
                 <span asp-validation-for="Capacity" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-bold text-primary">Mô Tả</label>
+                <input asp-for="Description" class="form-control border-primary" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+                <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

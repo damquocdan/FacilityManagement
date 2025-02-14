@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FacilityManagement.Models.Room>
+
+@{
+    ViewData["Title"] = "Danh Sách Phòng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center text-primary fw-bold mt-4">Danh Sách Phòng</h2>
+
+<table class="table table-bordered">
+    <thead class="text-white" style="background-color: #052c93;">
+        <tr>
+            <th>Tên Phòng</th>
+            <th>Loại Phòng</th>
+            <th>Sức Chứa</th>
+            <th>Mô Tả</th>
+            <th>Tòa Nhà</th>
+            <th>Thiết Bị</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.RoomName</td>
+                <td>@room.RoomType</td>
+                <td>@room.Capacity</td>
+                <td>@room.Description</td>
+                <td>@room.Building.BuildingName</td>
+                <td>
+                    @if (ViewBag.Equipments != null)
+                    {
+                        var roomEquipments = ((List<FacilityManagement.Models.Equipment>)ViewBag.Equipments)
+                        .Where(e => e.RoomId == room.RoomId)
+                        .ToList();
+
+                        if (roomEquipments.Any())
+                        {
+                            <ul>
+                                @foreach (var eq in roomEquipments)
+                                {
+                                    <li>@eq.EquipmentName - @eq.Status</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Không có thiết bị</span>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,50 +1,60 @@
 ﻿@model FacilityManagement.Models.Maintenance
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Chỉnh Sửa";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Edit</h1>
+<h1 class="text-primary">Chỉnh Sửa Bảo Trì</h1>
 
-<h4>Maintenance</h4>
+<h4 class="text-primary">Thông Tin Bảo Trì</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MaintenanceId" />
+
             <div class="form-group">
-                <label asp-for="EquipmentId" class="control-label"></label>
+                <label asp-for="EquipmentId" class="control-label">Thiết Bị</label>
                 <select asp-for="EquipmentId" class="form-control" asp-items="ViewBag.EquipmentId"></select>
                 <span asp-validation-for="EquipmentId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="MaintenanceDate" class="control-label"></label>
+                <label asp-for="MaintenanceDate" class="control-label">Ngày Bảo Trì</label>
                 <input asp-for="MaintenanceDate" class="form-control" />
                 <span asp-validation-for="MaintenanceDate" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Mô Tả</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <label asp-for="Status" class="control-label">Trạng Thái</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Hoàn thành">Hoàn thành</option>
+                    <option value="Chưa giải quyết">Chưa giải quyết</option>
+                </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Lưu" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

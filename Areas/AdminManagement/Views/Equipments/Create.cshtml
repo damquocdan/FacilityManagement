@@ -1,53 +1,61 @@
 ﻿@model FacilityManagement.Models.Equipment
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tạo Mới";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Create</h1>
+<h1 class="text-primary">Tạo Thiết Bị Mới</h1>
 
-<h4>Equipment</h4>
+<h4>Thông Tin Thiết Bị</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+                <label asp-for="Image" class="control-label">Hình Ảnh</label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="EquipmentName" class="control-label"></label>
+                <label asp-for="EquipmentName" class="control-label">Tên Thiết Bị</label>
                 <input asp-for="EquipmentName" class="form-control" />
                 <span asp-validation-for="EquipmentName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="EquipmentType" class="control-label"></label>
+                <label asp-for="EquipmentType" class="control-label">Loại Thiết Bị</label>
                 <input asp-for="EquipmentType" class="form-control" />
                 <span asp-validation-for="EquipmentType" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="RoomId" class="control-label"></label>
-                <select asp-for="RoomId" class ="form-control" asp-items="ViewBag.RoomId"></select>
+                <label asp-for="RoomId" class="control-label">Phòng</label>
+                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
             </div>
+
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Mô Tả</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Tạo Mới" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại Danh Sách</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

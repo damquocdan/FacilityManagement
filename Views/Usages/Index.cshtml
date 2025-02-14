@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FacilityManagement.Models.Usage>
+
+@{
+    ViewData["Title"] = "Danh sách sử dụng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #052c93;
+    }
+</style>
+
+<h1>Danh sách sử dụng</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Tạo mới</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Người sử dụng
+            </th>
+            <th>
+                Ngày sử dụng
+            </th>
+            <th>
+                Mục đích sử dụng
+            </th>
+            <th>
+                Loại phòng
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsageDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purpose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.RoomType)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

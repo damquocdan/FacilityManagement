@@ -1,17 +1,18 @@
 ﻿@model IEnumerable<FacilityManagement.Models.Equipment>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh Sách Thiết Bị";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Index</h1>
+<h1 class="text-primary">Danh Sách Thiết Bị</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary" style="background-color: #052c93; border-color: #052c93;">Tạo Mới</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-bordered">
+    <thead class="table-light">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Image)
@@ -31,36 +32,37 @@
             <th>
                 @Html.DisplayNameFor(model => model.Room)
             </th>
-            <th></th>
+            <th class="text-center">Hành Động</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EquipmentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EquipmentType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room.RoomId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EquipmentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EquipmentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EquipmentId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EquipmentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EquipmentType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.RoomName)
+                </td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@item.EquipmentId" class="btn btn-warning btn-sm">Sửa</a> 
+                    <a asp-action="Details" asp-route-id="@item.EquipmentId" class="btn btn-info btn-sm">Chi Tiết</a> 
+                    <a asp-action="Delete" asp-route-id="@item.EquipmentId" class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

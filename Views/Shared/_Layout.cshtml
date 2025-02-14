@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FacilityManagement</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cơ sở vật chất</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,11 +20,28 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-controller="Usages" asp-action="Index">Lịch sử dụng phòng</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        @if (Context.Session.GetString("CustomerLogin") != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Rooms" asp-action="Index" asp-route-staffId="@Context.Session.GetInt32("CustomerId")">Phòng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Maintenances" asp-action="Create" asp-route-staffId="@Context.Session.GetInt32("CustomerId")">Báo cáo bảo trì</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="@Url.Action("Logout", "LoginC")">Đăng xuất</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <!-- Hiển thị Đăng nhập và Đăng ký khi chưa đăng nhập -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="LoginC" asp-action="Index">Đăng nhập</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

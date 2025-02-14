@@ -48,7 +48,7 @@ namespace FacilityManagement.Areas.AdminManagement.Controllers
         // GET: AdminManagement/Equipments/Create
         public IActionResult Create()
         {
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId");
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomName");
             return View();
         }
 

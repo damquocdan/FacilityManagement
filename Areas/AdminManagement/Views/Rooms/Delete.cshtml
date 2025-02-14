@@ -1,52 +1,57 @@
 ﻿@model FacilityManagement.Models.Room
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Xóa Phòng";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Delete</h1>
+<h1 class="text-primary">Xóa Phòng</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="text-danger">Bạn có chắc chắn muốn xóa phòng này?</h3>
+
 <div>
-    <h4>Room</h4>
+    <h4 class="text-dark">Thông Tin Phòng</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomName)
+        <dt class="col-sm-3 text-primary fw-bold">
+            Tên Phòng
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.RoomName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomType)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Loại Phòng
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.RoomType)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Capacity)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Sức Chứa
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Capacity)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Mô Tả
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Building)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Toà Nhà
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Building.BuildingId)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Building.BuildingName)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
+
+    <form asp-action="Delete" class="mt-3">
         <input type="hidden" asp-for="RoomId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
     </form>
 </div>

@@ -48,7 +48,7 @@ namespace FacilityManagement.Areas.AdminManagement.Controllers
         // GET: AdminManagement/Maintenances/Create
         public IActionResult Create()
         {
-            ViewData["EquipmentId"] = new SelectList(_context.Equipment, "EquipmentId", "EquipmentId");
+            ViewData["EquipmentId"] = new SelectList(_context.Equipment, "EquipmentId", "EquipmentName");
             return View();
         }
 
@@ -82,9 +82,14 @@ namespace FacilityManagement.Areas.AdminManagement.Controllers
             {
                 return NotFound();
             }
-            ViewData["EquipmentId"] = new SelectList(_context.Equipment, "EquipmentId", "EquipmentId", maintenance.EquipmentId);
+
+            // Đặt danh sách các thiết bị vào ViewData
+            ViewData["EquipmentId"] = new SelectList(_context.Equipment, "EquipmentId", "EquipmentName", maintenance.EquipmentId);
+
+            // Trả về View với dữ liệu Maintenance
             return View(maintenance);
         }
+
 
         // POST: AdminManagement/Maintenances/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -102,6 +107,7 @@ namespace FacilityManagement.Areas.AdminManagement.Controllers
             {
                 try
                 {
+
                     _context.Update(maintenance);
                     await _context.SaveChangesAsync();
                 }
@@ -116,11 +122,14 @@ namespace FacilityManagement.Areas.AdminManagement.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); // Quay lại danh sách Maintenance
             }
-            ViewData["EquipmentId"] = new SelectList(_context.Equipment, "EquipmentId", "EquipmentId", maintenance.EquipmentId);
+
+            // Nếu model không hợp lệ, trả về View
+            ViewData["EquipmentId"] = new SelectList(_context.Equipment, "EquipmentId", "EquipmentName", maintenance.EquipmentId);
             return View(maintenance);
         }
+
 
         // GET: AdminManagement/Maintenances/Delete/5
         public async Task<IActionResult> Delete(int? id)

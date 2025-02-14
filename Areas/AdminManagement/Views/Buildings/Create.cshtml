@@ -1,43 +1,91 @@
 ﻿@model FacilityManagement.Models.Building
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm Tòa Nhà";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Create</h1>
+<!-- Custom CSS -->
+<style>
+    body {
+        background-color: white;
+    }
 
-<h4>Building</h4>
+    .text-primary {
+        color: #052c93;
+    }
+
+    .btn-primary {
+        background-color: #052c93;
+        border-color: #052c93;
+    }
+
+        .btn-primary:hover {
+            background-color: #041f6b;
+            border-color: #041f6b;
+        }
+
+    .btn-secondary {
+        background-color: #ccc;
+        border-color: #ccc;
+        color: black;
+    }
+
+        .btn-secondary:hover {
+            background-color: #b3b3b3;
+        }
+
+    .form-group label {
+        font-weight: bold;
+        color: #052c93;
+    }
+
+    .back-link {
+        color: #052c93;
+        font-weight: bold;
+    }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<h1 class="text-primary">Thêm Tòa Nhà</h1>
+
 <hr />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="BuildingName" class="control-label"></label>
-                <input asp-for="BuildingName" class="form-control" />
+                <label asp-for="BuildingName" class="control-label">Tên Tòa Nhà</label>
+                <input asp-for="BuildingName" class="form-control" placeholder="Nhập tên tòa nhà" />
                 <span asp-validation-for="BuildingName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="CampusId" class="control-label"></label>
-                <select asp-for="CampusId" class ="form-control" asp-items="ViewBag.CampusId"></select>
+                <label asp-for="CampusId" class="control-label">Mã Cơ Sở</label>
+                <select asp-for="CampusId" class="form-control" asp-items="ViewBag.CampusId"></select>
             </div>
+
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <label asp-for="Description" class="control-label">Mô Tả</label>
+                <input asp-for="Description" class="form-control" placeholder="Nhập mô tả" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+                <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

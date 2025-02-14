@@ -1,0 +1,60 @@
+﻿@model FacilityManagement.Models.Usage
+
+@{
+    ViewData["Title"] = "Tạo mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #052c93;
+    }
+</style>
+
+<h1>Tạo mới</h1>
+
+<h4>Sử dụng phòng</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoomId" class="control-label">Phòng</label>
+                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsedBy" class="control-label">Người sử dụng</label>
+                <input asp-for="UsedBy" class="form-control" disabled />
+                <span asp-validation-for="UsedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsageDate" class="control-label">Ngày sử dụng</label>
+                <input asp-for="UsageDate" type="date" class="form-control" />
+                <span asp-validation-for="UsageDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purpose" class="control-label">Mục đích sử dụng</label>
+                <input asp-for="Purpose" class="form-control" />
+                <span asp-validation-for="Purpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,60 +1,73 @@
 ﻿@model FacilityManagement.Models.Equipment
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Chỉnh Sửa Thiết Bị";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Edit</h1>
+<h1 class="text-primary">Chỉnh Sửa Thiết Bị</h1>
 
-<h4>Equipment</h4>
+<h4>Thông Tin Thiết Bị</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="EquipmentId" />
+
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+                <label asp-for="Image" class="control-label">Hình Ảnh</label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="EquipmentName" class="control-label"></label>
+                <label asp-for="EquipmentName" class="control-label">Tên Thiết Bị</label>
                 <input asp-for="EquipmentName" class="form-control" />
                 <span asp-validation-for="EquipmentName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="EquipmentType" class="control-label"></label>
+                <label asp-for="EquipmentType" class="control-label">Loại Thiết Bị</label>
                 <input asp-for="EquipmentType" class="form-control" />
                 <span asp-validation-for="EquipmentType" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="RoomId" class="control-label"></label>
+                <label asp-for="RoomId" class="control-label">Phòng</label>
                 <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
                 <span asp-validation-for="RoomId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <label asp-for="Status" class="control-label">Trạng Thái</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Sẵn sàng">Sẵn sàng</option>
+                    <option value="Đang sửa chữa">Đang sửa chữa</option>
+                    <option value="Hỏng">Hỏng</option>
+                </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Mô Tả</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Lưu" class="btn btn-primary" style="background-color: #052c93; border-color: #052c93;" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại Danh Sách</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

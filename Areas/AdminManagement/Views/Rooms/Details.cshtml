@@ -1,49 +1,54 @@
 ﻿@model FacilityManagement.Models.Room
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi Tiết Phòng";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<h1>Details</h1>
+<h1 class="text-primary">Chi Tiết Phòng</h1>
 
 <div>
-    <h4>Room</h4>
+    <h4 class="text-dark">Thông Tin Phòng</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomName)
+        <dt class="col-sm-3 text-primary fw-bold">
+            Tên Phòng
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.RoomName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomType)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Loại Phòng
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.RoomType)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Capacity)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Sức Chứa
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Capacity)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Mô Tả
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Building)
+
+        <dt class="col-sm-3 text-primary fw-bold">
+            Toà Nhà
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Building.BuildingId)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Building.BuildingName)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.RoomId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model?.RoomId" class="btn btn-primary">Chỉnh Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
 </div>
