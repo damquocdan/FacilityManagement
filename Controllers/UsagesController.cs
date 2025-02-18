@@ -47,6 +47,14 @@ namespace FacilityManagement.Controllers
         // GET: Usages/Create
         public IActionResult Create()
         {
+            var customerId = HttpContext.Session.GetInt32("CustomerId");
+
+            // Check if CustomerId exists in session
+            if (customerId == null)
+            {
+                TempData["Error"] = "Bạn cần đăng nhập để sử dụng chức năng này.";
+                return RedirectToAction("Index", "LoginC");
+            }
             var staffName = HttpContext.Session.GetString("CustomerLogin");
 
             // Tạo một đối tượng Usage mới và gán giá trị cho UsedBy

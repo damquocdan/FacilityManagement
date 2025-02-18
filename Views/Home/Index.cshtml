@@ -1,9 +1,10 @@
 ﻿<style>
     /* Tiêu đề */
+    /* Tiêu đề chính và phụ (tiếng Việt) */
     h1 {
         font-size: 36px;
         font-weight: bold;
-        color: #333;
+        color: #eb272c; /* Màu chủ đạo: Đỏ */
         text-align: center;
         margin-bottom: 30px;
     }
@@ -11,24 +12,39 @@
     h2 {
         font-size: 24px;
         font-weight: bold;
-        color: #007bff; /* Màu xanh đậm */
+        color: #4b8ac9; /* Màu chủ đạo: Xanh */
         margin-bottom: 20px;
     }
 
-    /* Nội dung */
+    h3, h4, h5, h6 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #4b8ac9;
+        margin-bottom: 15px;
+    }
+
+    /* Nội dung văn bản */
     p {
         font-size: 16px;
         line-height: 1.5;
-        color: #666;
+        color: #4b8ac9;
         margin-bottom: 20px;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        color: #052c93; /* Màu xanh đậm cho tiêu đề */
+    #main img {
+        width: 100%; /* Chiều rộng bằng 100% của phần tử cha (main) */
+        height: auto; /* Tự động tính chiều cao theo tỷ lệ hình ảnh */
+        display: block; /* Hiển thị dưới dạng block để loại bỏ khoảng trắng xung quanh */
+        margin: 20px 0; /* Lề trên và dưới, không canh giữa */
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px #888;
     }
-    /* Hình ảnh */
+    /* Hình ảnh (đáp ứng, có khung, bo tròn và đổ bóng) */
     img {
-        width: 1280px;
+        max-width: 100%;
+        height: auto;
+        display: block;
         margin: 20px auto;
         border: 2px solid #ccc;
         border-radius: 10px;
@@ -40,17 +56,27 @@
         text-align: center;
         font-size: 14px;
         color: #888;
+        margin-top: 5px;
     }
 
-    /* Tùy chỉnh thêm */
+    /* Banner tiêu đề trang */
     .page-title-bg {
-        background-color: #f0f0f0; /* Màu nền tiêu đề */
+        background-color: #4b8ac9; /* Nền xanh */
         padding: 50px 0;
+        color: #ffffff;
+        text-align: center;
     }
 
+        .page-title-bg .entry-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+    /* Tùy chỉnh nội dung bên trong */
     .entry-content p strong {
         font-weight: bold;
-        color: #333;
+        color: #eb272c;
     }
 </style>
 <main id="main" class="">
