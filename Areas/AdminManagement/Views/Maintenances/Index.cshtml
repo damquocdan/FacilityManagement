@@ -14,43 +14,31 @@
 <table class="table table-bordered">
     <thead class="bg-primary text-white">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MaintenanceDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Equipment)
-            </th>
-            <th></th>
+            <th>Ngày Bảo Trì</th>
+            <th>Mô Tả</th>
+            <th>Trạng Thái</th>
+            <th>Thiết Bị</th>
+            <th class="text-center">Hành Động</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
+                <td>@item.MaintenanceDate.ToString("dd/MM/yyyy")</td>
+                <td>@item.Description</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MaintenanceDate)
+                    @{
+                        string statusClass = item.Status == "Hoàn thành" ? "badge bg-success" : "badge bg-danger";
+                    }
+                    <span class="@statusClass">@item.Status</span>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Equipment.EquipmentName)
-                </td>
-                <td>
+                <td>@item.Equipment.EquipmentName</td>
+                <td class="text-center">
                     <a asp-action="Edit" asp-route-id="@item.MaintenanceId" class="btn btn-warning btn-sm">
                         Chỉnh Sửa Trạng thái
                     </a>
-
-                    <a asp-action="Details" asp-route-id="@item.MaintenanceId" class="btn btn-info btn-sm">Chi Tiết</a> 
+                    <a asp-action="Details" asp-route-id="@item.MaintenanceId" class="btn btn-info btn-sm">Chi Tiết</a>
                     <a asp-action="Delete" asp-route-id="@item.MaintenanceId" class="btn btn-danger btn-sm">Xóa</a>
                 </td>
             </tr>
