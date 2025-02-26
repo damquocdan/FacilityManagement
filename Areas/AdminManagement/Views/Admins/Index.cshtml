@@ -5,7 +5,6 @@
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<!-- Add custom CSS for primary color -->
 <style>
     body {
         background-color: white;
@@ -30,36 +29,54 @@
         background-color: #052c93;
         border-color: #052c93;
     }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: black;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white;
+    }
 </style>
 
-<h1>Trang Chủ</h1>
+<h1 class="text-primary"><i class="fas fa-home"></i> Trang Chủ Quản Trị Viên</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Tạo Mới</a>
 </p>
 
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AdminName) - Tên Quản Trị
+                <i class="fas fa-user"></i>Tên Quản Trị
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Username) - Tên Đăng Nhập
+                <i class="fas fa-user-circle"></i> Tên Đăng Nhập
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password) - Mật Khẩu
+                <i class="fas fa-lock"></i> Mật Khẩu
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email) - Email
+                <i class="fas fa-envelope"></i> Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone) - Số Điện Thoại
+                <i class="fas fa-phone"></i> Số Điện Thoại
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedAt) - Ngày Tạo
+                <i class="fas fa-calendar-alt"></i> Ngày Tạo
             </th>
-            <th></th>
+            <th><i class="fas fa-tools"></i> Hành Động</th>
         </tr>
     </thead>
     <tbody>
@@ -73,7 +90,7 @@
                     @Html.DisplayFor(modelItem => item.Username)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Password)
+                    ********
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
@@ -85,11 +102,15 @@
                     @Html.DisplayFor(modelItem => item.CreatedAt)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.AdminId" class="btn btn-warning">Sửa</a>
-                    <a asp-action="Details" asp-route-id="@item.AdminId" class="btn btn-info">Chi Tiết</a>
-                    <a asp-action="Delete" asp-route-id="@item.AdminId" class="btn btn-danger">Xóa</a>
+                    <a asp-action="Edit" asp-route-id="@item.AdminId" class="btn btn-warning"><i class="fas fa-edit"></i> Sửa</a>
+                    <a asp-action="Details" asp-route-id="@item.AdminId" class="btn btn-info"><i class="fas fa-info-circle"></i> Chi Tiết</a>
+                    <a asp-action="Delete" asp-route-id="@item.AdminId" class="btn btn-danger"><i class="fas fa-trash"></i> Xóa</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

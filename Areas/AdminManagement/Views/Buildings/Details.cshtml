@@ -5,7 +5,6 @@
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<!-- Custom CSS -->
 <style>
     body {
         background-color: white;
@@ -51,28 +50,28 @@
         }
 </style>
 
-<h1 class="text-primary">Chi Tiết Tòa Nhà</h1>
+<h1 class="text-primary"><i class="fas fa-info-circle"></i> Chi Tiết Tòa Nhà</h1>
 
 <div class="card shadow-sm p-4 mt-3">
-    <h4 class="text-primary">Thông Tin Tòa Nhà</h4>
+    <h4 class="text-primary"><i class="fas fa-building"></i> Thông Tin Tòa Nhà</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-3 detail-label">
-            Tên Tòa Nhà:
+            <i class="fas fa-signature"></i> Tên Tòa Nhà:
         </dt>
         <dd class="col-sm-9">
             @Html.DisplayFor(model => model.BuildingName)
         </dd>
 
         <dt class="col-sm-3 detail-label">
-            Mô Tả:
+            <i class="fas fa-file-alt"></i> Mô Tả:
         </dt>
         <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Description)
         </dd>
 
         <dt class="col-sm-3 detail-label">
-            Mã Cơ Sở:
+            <i class="fas fa-map-marker-alt"></i> Mã Cơ Sở:
         </dt>
         <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Campus.CampusId)
@@ -81,6 +80,10 @@
 </div>
 
 <div class="mt-3">
-    <a asp-action="Edit" asp-route-id="@Model?.BuildingId" class="btn btn-primary">Chỉnh Sửa</a>
-    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+    <a asp-action="Edit" asp-route-id="@Model?.BuildingId" class="btn btn-primary"><i class="fas fa-edit"></i> Chỉnh Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-list"></i> Quay lại danh sách</a>
 </div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

@@ -1,7 +1,7 @@
 ﻿@model FacilityManagement.Models.Usage
 
 @{
-    ViewData["Title"] = "Sửa thông tin sử dụng";
+    ViewData["Title"] = "Sửa Thông Tin Sử Dụng";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
@@ -23,6 +23,7 @@
 
     .form-group label {
         color: #052c93;
+        font-weight: bold;
     }
 
     .btn-primary {
@@ -34,46 +35,53 @@
             background-color: #042673;
             border-color: #042673;
         }
+
+    .btn-secondary {
+        background-color: #ccc;
+        border-color: #ccc;
+        color: black;
+    }
+
+        .btn-secondary:hover {
+            background-color: #b3b3b3;
+        }
 </style>
 
 <div class="container">
-    <h1>Sửa thông tin sử dụng</h1>
+    <h1 class="text-primary"><i class="fas fa-edit"></i> Sửa Thông Tin Sử Dụng</h1>
 
     <hr />
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="UsageId" />
                 <div class="form-group">
-                    <label asp-for="RoomId" class="control-label"></label>
+                    <label asp-for="RoomId" class="control-label"><i class="fas fa-door-open"></i> Phòng</label>
                     <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
                     <span asp-validation-for="RoomId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="UsedBy" class="control-label"></label>
+                    <label asp-for="UsedBy" class="control-label"><i class="fas fa-user"></i> Người Sử Dụng</label>
                     <input asp-for="UsedBy" class="form-control" />
                     <span asp-validation-for="UsedBy" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="UsageDate" class="control-label"></label>
+                    <label asp-for="UsageDate" class="control-label"><i class="fas fa-calendar-alt"></i> Ngày Sử Dụng</label>
                     <input asp-for="UsageDate" class="form-control" />
                     <span asp-validation-for="UsageDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Purpose" class="control-label"></label>
+                    <label asp-for="Purpose" class="control-label"><i class="fas fa-file-alt"></i> Mục Đích</label>
                     <input asp-for="Purpose" class="form-control" />
                     <span asp-validation-for="Purpose" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Lưu</button>
+                    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Quay Lại Danh Sách</a>
                 </div>
             </form>
         </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Quay lại danh sách</a>
     </div>
 </div>
 
@@ -81,4 +89,5 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 }

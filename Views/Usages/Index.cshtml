@@ -1,58 +1,59 @@
 ﻿@model IEnumerable<FacilityManagement.Models.Usage>
 
 @{
-    ViewData["Title"] = "Danh sách sử dụng";
+    ViewData["Title"] = "Danh Sách Sử Dụng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
-
     h1, h2, h3, h4, h5, h6 {
-        color: #eb272c;
+        color: #052c93; /* Màu chủ đạo: Xanh đậm */
     }
 
     .btn-primary {
-        background-color: #eb272c;
-        border-color: #eb272c;
+        background-color: #052c93;
+        border-color: #052c93;
+        color: white;
     }
 
         .btn-primary:hover {
-            background-color: #c91f24;
-            border-color: #c91f24;
+            background-color: #041f6b;
+            border-color: #041f6b;
         }
 
     .table {
-        border: 1px solid #4b8ac9;
+        border: 1px solid #052c93;
     }
 
         .table th {
-            background-color: #4b8ac9;
+            background-color: #052c93;
             color: #ffffff;
             text-align: center;
         }
 
         .table td {
             text-align: center;
+            vertical-align: middle;
         }
 
     .table-hover tbody tr:hover {
-        background-color: #f8d7da;
+        background-color: #e0e8f9; /* Màu nền khi hover */
     }
 </style>
 
-<h1>Danh Sách Sử Dụng</h1>
+<h1 class="text-primary"><i class="fas fa-list-alt"></i> Danh Sách Sử Dụng</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Tạo Mới</a>
 </p>
 
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Người Sử Dụng</th>
-            <th>Ngày Sử Dụng</th>
-            <th>Mục Đích Sử Dụng</th>
-            <th>Loại Phòng</th>
+            <th><i class="fas fa-user"></i> Người Sử Dụng</th>
+            <th><i class="fas fa-calendar-alt"></i> Ngày Sử Dụng</th>
+            <th><i class="fas fa-file-alt"></i> Mục Đích Sử Dụng</th>
+            <th><i class="fas fa-door-open"></i> Loại Phòng</th>
         </tr>
     </thead>
     <tbody>
@@ -67,3 +68,7 @@
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

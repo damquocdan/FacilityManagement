@@ -1,7 +1,7 @@
 ﻿@model FacilityManagement.Models.Usage
 
 @{
-    ViewData["Title"] = "Xóa thông tin sử dụng";
+    ViewData["Title"] = "Xóa Thông Tin Sử Dụng";
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
@@ -46,33 +46,33 @@
 </style>
 
 <div class="container">
-    <h1>Xóa thông tin sử dụng</h1>
+    <h1 class="text-danger"><i class="fas fa-trash-alt"></i> Xóa Thông Tin Sử Dụng</h1>
 
-    <h3>Bạn có chắc chắn muốn xóa?</h3>
+    <h3><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa?</h3>
     <div>
         <h4>Thông tin sử dụng</h4>
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.UsedBy)
+                <i class="fas fa-user"></i> @Html.DisplayNameFor(model => model.UsedBy)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.UsedBy)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.UsageDate)
+                <i class="fas fa-calendar-alt"></i> @Html.DisplayNameFor(model => model.UsageDate)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.UsageDate)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Purpose)
+                <i class="fas fa-file-alt"></i> @Html.DisplayNameFor(model => model.Purpose)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Purpose)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Room)
+                <i class="fas fa-door-open"></i> @Html.DisplayNameFor(model => model.Room)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Room.RoomName)
@@ -81,7 +81,7 @@
 
         <form asp-action="Delete">
             <input type="hidden" asp-for="UsageId" />
-            <input type="submit" value="Xóa" class="btn btn-danger" /> 
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Xóa</button>
             <a asp-action="Index">Quay lại danh sách</a>
         </form>
     </div>

@@ -5,7 +5,6 @@
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<!-- Custom CSS -->
 <style>
     body {
         background-color: white;
@@ -51,21 +50,21 @@
         }
 </style>
 
-<h1 class="text-primary">Xóa Tòa Nhà</h1>
+<h1 class="text-primary"><i class="fas fa-trash-alt"></i> Xóa Tòa Nhà</h1>
 
-<h3 class="text-danger">Bạn có chắc chắn muốn xóa tòa nhà này?</h3>
+<h3 class="text-danger"><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa tòa nhà này?</h3>
 
 <div class="card shadow-sm p-4 mt-3">
-    <h4 class="text-primary">Thông Tin Tòa Nhà</h4>
+    <h4 class="text-primary"><i class="fas fa-info-circle"></i> Thông Tin Tòa Nhà</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-3 detail-label">Tên Tòa Nhà:</dt>
+        <dt class="col-sm-3 detail-label"><i class="fas fa-signature"></i> Tên Tòa Nhà:</dt>
         <dd class="col-sm-9">@Html.DisplayFor(model => model.BuildingName)</dd>
 
-        <dt class="col-sm-3 detail-label">Mô Tả:</dt>
+        <dt class="col-sm-3 detail-label"><i class="fas fa-file-alt"></i> Mô Tả:</dt>
         <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
 
-        <dt class="col-sm-3 detail-label">Mã Cơ Sở:</dt>
+        <dt class="col-sm-3 detail-label"><i class="fas fa-map-marker-alt"></i> Mã Cơ Sở:</dt>
         <dd class="col-sm-9">@Html.DisplayFor(model => model.Campus.CampusId)</dd>
     </dl>
 </div>
@@ -73,7 +72,11 @@
 <div class="mt-3">
     <form asp-action="Delete">
         <input type="hidden" asp-for="BuildingId" />
-        <button type="submit" class="btn btn-danger">Xóa</button>
-        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-list"></i> Quay lại danh sách</a>
     </form>
 </div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

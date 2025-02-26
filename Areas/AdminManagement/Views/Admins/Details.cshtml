@@ -5,7 +5,6 @@
     Layout = "~/Areas/AdminManagement/Views/Shared/Admin.cshtml";
 }
 
-<!-- Custom CSS -->
 <style>
     body {
         background-color: white;
@@ -43,32 +42,17 @@
         }
 </style>
 
-<h1 class="text-primary">Chi Tiết Quản Trị Viên</h1>
+<h1 class="text-primary"><i class="fas fa-user"></i> Chi Tiết Quản Trị Viên</h1>
 
 <div>
-    <h4 class="text-primary">Thông Tin Quản Trị</h4>
+    <h4 class="text-primary"><i class="fas fa-info-circle"></i> Thông Tin Quản Trị</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-3">Họ và Tên</dt>
+        <dt class="col-sm-3"><i class="fas fa-user"></i> Họ và Tên</dt>
         <dd class="col-sm-9">@Html.DisplayFor(model => model.AdminName)</dd>
 
-        <dt class="col-sm-3">Tên Đăng Nhập</dt>
+        <dt class="col-sm-3"><i class="fas fa-user-circle"></i> Tên Đăng Nhập</dt>
         <dd class="col-sm-9">@Html.DisplayFor(model => model.Username)</dd>
 
-        <dt class="col-sm-3">Mật Khẩu</dt>
-        <dd class="col-sm-9">********</dd> <!-- Ẩn mật khẩu -->
-
-        <dt class="col-sm-3">Email</dt>
-        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
-
-        <dt class="col-sm-3">Số Điện Thoại</dt>
-        <dd class="col-sm-9">@Html.DisplayFor(model => model.Phone)</dd>
-
-        <dt class="col-sm-3">Ngày Tạo</dt>
-        <dd class="col-sm-9">@Html.DisplayFor(model => model.CreatedAt)</dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.AdminId" class="btn btn-primary">Chỉnh Sửa</a>
-    <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
-</div>
+        <dt class="col-sm-3"><i class="fas fa-lock"></i> Mật Khẩu</dt>
+        <dd class="col-sm-9">********</dd>
